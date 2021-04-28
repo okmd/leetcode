@@ -28,8 +28,8 @@ Note:
 
 `Day:05-25` Basic Data structure 4 days per topics:
 
-1. [Arrays](href="https://leetcode.com/tag/array/")
-2. [Linkedlist](href="https://leetcode.com/tag/linked-list/")
+1. [ ][Arrays](href="https://leetcode.com/tag/array/")
+2. [x][Linkedlist](href="https://leetcode.com/tag/linked-list/")
 3. [Stack](href="https://leetcode.com/tag/stack/")
 4. [Queues](href="https://leetcode.com/tag/queue/")
 5. [Strings](href="https://leetcode.com/tag/string/")
@@ -144,7 +144,7 @@ NOTE:
 
 ## Youtybe content
 
-[Tech Dose Playlsit Leet Code](https://www.youtube.com/c/TECHDOSE4u/playlists)
+[Tech Dose Playlist LeetCode](https://www.youtube.com/c/TECHDOSE4u/playlists)
 
 ## Refrence 
 
