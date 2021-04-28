@@ -57,15 +57,15 @@ NOTE: Practice easy 15-20 problems on each topics.
 `Day:61-90` Problem solving and Pattern problems:
 
 - Fast and Slow points
-  - [Linked list cycle..](https://leetcode.com/tag/#/)
-  - [Middle of linked list.](https://leetcode.com/tag/#/)
-  - [Happy number.](https://leetcode.com/tag/#/)
+  - [Linked List Cycle.](https://leetcode.com/problems/linked-list-cycle/)
+  - [Middle of the linked list.](https://leetcode.com/problems/middle-of-the-linked-list/)
+  - [Happy number.](https://leetcode.com/problems/happy-number/)
 - DFS
-  - [min depth of binary tree.](https://leetcode.com/tag/#/)
-  - [number of islands.](https://leetcode.com/tag/#/)
-  - [critical connection in a n/w.](https://leetcode.com/tag/#/)
-  - [clone graph.](https://leetcode.com/tag/#/)
-  - [path sum.](https://leetcode.com/tag/#/)
+  - [Minimum Depth of Binary Tree.](https://leetcode.com/problems/minimum-depth-of-binary-tree/)
+  - [Number of islands.](https://leetcode.com/problems/number-of-islands/)
+  - [Critical connection in a n/w.](https://leetcode.com/problems/critical-connections-in-a-network/)
+  - [Clone graph.](https://leetcode.com/problems/clone-graph/)
+  - [Path sum.](https://leetcode.com/problems/path-sum/)
 - Bitwiese Xor
   - [Single num.](https://leetcode.com/tag/#/)
   - [two single num.](https://leetcode.com/tag/#/)
@@ -111,7 +111,7 @@ NOTE: Practice easy 15-20 problems on each topics.
   - [longest substring without repeating chars.](https://leetcode.com/tag/#/)
   - [sliding window max.](https://leetcode.com/tag/#/)
   - [min, windows substring](https://leetcode.com/tag/#/)
-  - [num of submatrices that sum to target.](https://leetcode.com/tag/#/)
+  - [Number of Submatrices That Sum to Target](https://leetcode.com/problems/number-of-submatrices-that-sum-to-target/)
 - Minimum and Maximum
   - [Guess number higher or lower.](https://leetcode.com/tag/#/)
   - [Stone Game.](https://leetcode.com/tag/#/)
