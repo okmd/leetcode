@@ -28,8 +28,8 @@ Note:
 
 `Day:05-25` Basic Data structure 4 days per topics:
 
-1. [ ][Arrays](href="https://leetcode.com/tag/array/")
-2. [x][Linkedlist](href="https://leetcode.com/tag/linked-list/")
+1. [Arrays](href="https://leetcode.com/tag/array/")
+2. [Linkedlist](href="https://leetcode.com/tag/linked-list/")
 3. [Stack](href="https://leetcode.com/tag/stack/")
 4. [Queues](href="https://leetcode.com/tag/queue/")
 5. [Strings](href="https://leetcode.com/tag/string/")
@@ -144,8 +144,14 @@ NOTE:
 
 ## Youtybe content
 
-[Tech Dose Playlist LeetCode](https://www.youtube.com/c/TECHDOSE4u/playlists)
+[Tech Dose Playlist Leet Code](https://www.youtube.com/c/TECHDOSE4u/playlists)
 
 ## Refrence 
 
 - [Topic Refrence AppliedInterviewPrep](https://www.youtube.com/watch?v=twN2kDfeSQY&t=2790s&ab_channel=AppliedAICourse)
+
+#### Used Emogies 
+
+[Emogies](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)
+
+:white_check_mark:
