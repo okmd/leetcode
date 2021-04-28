@@ -67,12 +67,12 @@ NOTE: Practice easy 15-20 problems on each topics.
   - [Clone graph.](https://leetcode.com/problems/clone-graph/)
   - [Path sum.](https://leetcode.com/problems/path-sum/)
 - Bitwiese Xor
-  - [Single num.](https://leetcode.com/tag/#/)
-  - [two single num.](https://leetcode.com/tag/#/)
-  - [counting bits.](https://leetcode.com/tag/#/)
+  - [Single number.](https://leetcode.com/problems/single-number/)
+  - [Two single num.](https://leetcode.com/problems/single-number-ii/)
+  - [Counting bits.](https://leetcode.com/problems/counting-bits/)
 - Two heaps
-  - [Fin median of num stream.](https://leetcode.com/tag/#/)
-  - [Sliding window median.](https://leetcode.com/tag/#/)
+  - [Fin median of num stream.](https://leetcode.com/problems/find-median-from-data-stream/)
+  - [Sliding window median.](https://leetcode.com/problems/sliding-window-median/)
   - [Maximize capital.](https://leetcode.com/tag/#/)
 - Modified binary search
   - [Median of two sorted array.](https://leetcode.com/tag/#/)
