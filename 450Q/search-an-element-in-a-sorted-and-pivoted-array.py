@@ -30,7 +30,7 @@ def binarySearchRec(arr, l, r, key):
 # a = [1, 2, 3, 4, 5, 6]
 # print(binarySearch(a, 0, len(a)-1, 14))
 # print(binarySearchRec(a, 0, len(a)-1, 14))
-
+# When all the elments are distinct.
 def rotatedBinarySearch(arr, l, r, key):
     if l > r:
         return -1
@@ -53,4 +53,28 @@ def rotatedBinarySearch(arr, l, r, key):
 arr = [6, 7, 8, 1, 2, 3, 4, 5]
 key = int(input("Enter Element to be found? "))
 index = rotatedBinarySearch(arr, 0, len(arr)-1, key)
+print(f"Element {key} is found at {index}.")
+
+# when there is duplicate elments also present.
+
+def rotatedBinarySearchDuplicate(arr, l, r, key):
+    if l > r:
+        return -1
+    mid = l + (r-l)//2
+    if arr[mid] == key:
+        return mid
+    if arr[l] == arr[mid] and arr[r] == arr[mid]:
+        return rotatedBinarySearchDuplicate(arr, l-1, r-1, key)
+    if arr[l] <= arr[mid]:
+        if arr[l] <= key and key <= arr[mid]:
+            return rotatedBinarySearchDuplicate(arr, l, mid-1, key)
+        return rotatedBinarySearchDuplicate(arr, mid+1, r, key)
+    if arr[mid] <= key and key <= arr[r]:
+        return rotatedBinarySearchDuplicate(arr, mid+1, r, key)
+    return rotatedBinarySearchDuplicate(arr, l, mid-1, key)
+
+
+arr = [6, 6, 7, 8, 1, 2, 3, 4, 5, 5]
+# key = int(input("Enter Element to be found? "))
+index = rotatedBinarySearchDuplicate(arr, 0, len(arr)-1, key)
 print(f"Element {key} is found at {index}.")
