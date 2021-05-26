@@ -1,4 +1,5 @@
-class stack:
+
+class Stack:
     def __init__(self):
         self.values = []
 
@@ -18,8 +19,8 @@ class stack:
 
 
 def enqueue_costly(operations):
-    stack1 = stack()
-    stack2 = stack()
+    stack1 = Stack()
+    stack2 = Stack()
     # for each elemets
     for op in operations:
         if op != -1:
@@ -37,8 +38,8 @@ def enqueue_costly(operations):
 
 
 def dequeue_costly(operations):
-    stack1 = stack()
-    stack2 = stack()
+    stack1 = Stack()
+    stack2 = Stack()
     # for each elemets
     for op in operations:
         if op != -1:
@@ -60,3 +61,34 @@ print("Enqueue costly method: ")
 enqueue_costly(operations)
 print("Dequeue costly method: ")
 dequeue_costly(operations)
+
+
+## ------------- Using Class ----------------- ##
+# dequeue costly
+class Queue:
+    def __init__(self) -> None:
+        self.s1 = Stack()
+        self.s2 = Stack()
+
+    def enqueue(self, val):
+        self.s1.push(val)
+
+    def dequeue(self):
+        while self.s1.size() > 1:
+            self.s2.push(self.s1.pop())
+
+        dequed = self.s1.pop()
+
+        while not self.s2.isEmpty():
+            self.s1.push(self.s2.pop())
+        return dequed
+
+
+# execute class code.
+print("Class implementation of Q:")
+Q = Queue()
+for op in operations:
+    if op != -1:
+        Q.enqueue(op)
+    else:
+        print(f"Dequeued: {Q.dequeue()}")
