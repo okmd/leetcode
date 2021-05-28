@@ -17,6 +17,14 @@ class Stack:
     def top(self):
         return self.values[-1]
 
+    def show(self):
+        print("Stack: ")
+        for i in self.values:
+            print(i, end=" ")
+        print()
+
+# O(1) time and O(n) space
+
 
 class SpecialStack:
     def __init__(self) -> None:
@@ -36,10 +44,56 @@ class SpecialStack:
 
     def get_min(self):
         return self.minstack.top()
+    def show(self):
+        self.stack.show()
 
 
+# O(1) time and O(1) stack
+class SpecialStackOptimized:
+    def __init__(self) -> None:
+        self.stack = Stack()
+        self.min = 0
+
+    def push(self, val):
+        if self.stack.size() == 0 or self.stack.top() < val:
+            self.stack.push(val)
+        else:
+            self.stack.push(2*val - self.min)
+            self.min = val
+
+    def pop(self):
+        if self.stack.size() == 0:
+            return -1
+
+        popped = self.stack.pop()
+        if self.min > popped:
+            self.min = 2*self.min - popped
+        return popped
+
+    def get_min(self):
+        return self.min
+
+    def show(self):
+        self.stack.show()
+
+
+# Running coe
+values = [22, 3, 8, 9, 55, 1, 3, 12]
 s = SpecialStack()
-values = [1, 2, 3, 8, 9, 0, 3]
+so = SpecialStackOptimized()
 for v in values:
     s.push(v)
+    so.push(v)
+    
+s.show()
+so.show()
+
+s.pop()
+s.pop()
+so.pop()
+so.pop()
+
 print(s.get_min())
+print(so.get_min())
+s.show()
+so.show()
