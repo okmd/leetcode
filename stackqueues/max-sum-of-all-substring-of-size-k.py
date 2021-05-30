@@ -5,7 +5,6 @@
 def max_sum_subarray_brute(arr, k):
     # O(n**2)
     mx_sums = []
-    i,j = 0,0
     for i in range(len(arr)-k+1):
         sm = 0
         for j in range(i, i+k):
