@@ -44,6 +44,7 @@ class SpecialStack:
 
     def get_min(self):
         return self.minstack.top()
+
     def show(self):
         self.stack.show()
 
@@ -55,7 +56,10 @@ class SpecialStackOptimized:
         self.min = 0
 
     def push(self, val):
-        if self.stack.size() == 0 or self.stack.top() < val:
+        if self.stack.size() == 0:
+            self.stack.push(val)
+            self.min = val
+        elif self.stack.top() < val:
             self.stack.push(val)
         else:
             self.stack.push(2*val - self.min)
@@ -84,7 +88,7 @@ so = SpecialStackOptimized()
 for v in values:
     s.push(v)
     so.push(v)
-    
+
 s.show()
 so.show()
 
