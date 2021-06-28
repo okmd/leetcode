@@ -58,5 +58,5 @@ def printAns(ans):
 
 
 if __name__ == "__main__":
-    arr = [1, 2, 34, 4]
+    arr = [3, 1, 4, 2, 2, 1]
     printAns(bottomUp(arr))
