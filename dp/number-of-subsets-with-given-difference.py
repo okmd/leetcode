@@ -8,9 +8,12 @@
 
 # Now problem is reduced to count subsets having sum s.
 
-def bottomUp(arr):
+def bottomUp(arr, diff):
     n = len(arr)
-    sm = sum(arr)
+    sm = (sum(arr) + diff)
+    if sm&1:
+        return 0
+    sm //= 2
     dp = [[1 for _ in range(sm+1)] for _ in range(n+1)]
     for i in range(n+1):
         for j in range(sm+1):
@@ -27,4 +30,4 @@ def bottomUp(arr):
 if __name__=="__main__":
     arr = [3,1,2,3]
     diff = 3
-    print(f"Subsets with difference {diff} is {bottomUp(arr)}.")
+    print(f"Subsets with difference {diff} is {bottomUp(arr, diff)}.")
