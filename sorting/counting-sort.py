@@ -20,7 +20,7 @@ def counting_sort(number_range, arr):
     # for each element in array, cumulative frequency gives how many elements are present before this elements.
     # but this is 0 based indexing hence this will be placed at (cum_feq - 1).
     # reduce the current frequency as this element is already placed.
-    for ele in arr:
+    for ele in arr[::-1]:
         frequency[ele] -= 1
         sorted_array[frequency[ele]] = ele
 
