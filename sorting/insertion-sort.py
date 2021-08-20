@@ -8,9 +8,10 @@ def insertion_sort(arr, ele):
     # assume arr is already sorted
     i = len(arr)
     arr.append(ele)
-    while i > 0 and arr[i] < arr[i-1]:
-        arr[i], arr[i-1] = arr[i-1], arr[i]
+    while i > 0 and arr[i-1] > ele:
+        arr[i] = arr[i-1]
         i -= 1
+    arr[i] = ele
 
 def find_median(arr, ele):
     insertion_sort(arr, ele)
