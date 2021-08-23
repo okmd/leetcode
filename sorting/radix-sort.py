@@ -15,7 +15,7 @@ from math import log, ceil
 
 
 def get_num_of_digits(num, base):
-    k = int(ceil(log(num, base)))
+    k = ceil(log(num, base))
     return k+1 if not num % base else k
 
 
@@ -26,6 +26,8 @@ def get_ith_digit(num, i, base):
 def get_cum_frequency(arr, base):
     # as digits at any place will range only 0..9 or 0..base-1
     frequency = [0]*base
+    frequency = [frequency[i]+1 for i in arr]
+    frequency = [frequency[i]+frequency[i-1] for i in range(1, base)]
     for j in arr:
         frequency[j] += 1
     for j in range(1, base):
