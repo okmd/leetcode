@@ -3,6 +3,7 @@
 # pivot finding is same as quicksort
 #### NOTE: kth smallest element is at: k-1 index
 #### NOTE: kth largest element is at: n-k index.
+import random
 def pivot(arr, l, r):
     p = arr[r]
     i = l-1
@@ -15,6 +16,18 @@ def pivot(arr, l, r):
 
     return i+1
 
+def randomPivot(arr, l, r):
+    # reduced time nearly 1/3 on leetcode
+    p = random.randint(l, r)
+    arr[p], arr[r] = arr[r], arr[p]
+    p = arr[r]
+    i = l-1
+    for j in range(l, r):
+        if arr[j] < p:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+    arr[i+1], arr[r] = arr[r], arr[i+1]
+    return i+1
 
 # quick select.
 def qs_small(arr, left, right, k):
@@ -46,6 +59,19 @@ def qs_small(arr, left, right, k):
 def qs_large(arr, left, right, k):
     return qs_small(arr, left, right, len(arr)-k+1)
 
+# kth-largest
+def kth_largest(arr, k):
+    k = len(arr) - k
+    left, right = 0, len(arr) - 1
+    while left <= right:
+        p = randomPivot(arr, left, right)
+        if p < k:
+            left = p + 1
+        elif k < p:
+            right = p - 1
+        else:
+            return arr[p]
+
 
 if __name__ == "__main__":
     arr = [7, 6, 1, 0, 2, 5, 3, 4, 55, 62, 12]
@@ -57,4 +83,4 @@ if __name__ == "__main__":
     arr = [7, 6, 1, 0, 2, 5, 3, 4, 55, 62, 12]
     for k in range(1, len(arr)+1):
         print(f"{k:02}th largest element is: ", end=" ")
-        print(qs_large(arr, 0, len(arr)-1, k))
+        print(qs_large(arr, 0, len(arr)-1, k), kth_largest(arr, k))
