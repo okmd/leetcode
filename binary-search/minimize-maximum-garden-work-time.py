@@ -7,6 +7,7 @@
 # Approach 1:
 # divide the array into k parts and calcualte all the working time per worker and find max time.
 # arrange those k-1 pipes into N-1 position to get all the possible division and find time.
+# N*N*N....K time.
 # finally get the min of all the maximum time.
 
 # Approach 2:
@@ -25,7 +26,7 @@ def possible_to_work(works, time, k):
     return workers <= k
 
 def minimize_max_work_time(works, k):
-    # O(logn) - O(n)
+    # O(logn)
     low = max(works)
     high = sum(works)
     ans = 10**9
@@ -40,7 +41,8 @@ def minimize_max_work_time(works, k):
     return ans
 
 
-# O(nlogn) - O(n^2)
+# O(nlog<Range>)
+# Range: INT_MAX => log(INT_MAX or 2^32) = 32
 works = [5, 8, 2, 10, 11, 12]
 k = 3
 minimum_max_work_time = minimize_max_work_time(works, k)
