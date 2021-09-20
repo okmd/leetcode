@@ -40,5 +40,5 @@ def inversionCount(arr, n):
     return inversions
 
 
-arr = [1,20,6,7,5,8,11,3]
+arr = [0,2,3,1]
 print(inversionCount(arr, len(arr)))
