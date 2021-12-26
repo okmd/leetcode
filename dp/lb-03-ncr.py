@@ -8,6 +8,15 @@
 #      1 4  6  4  1 n=4
 #   r=0  1  2  3  4
 
+def basic(n,r):
+    # O(n)
+    r = min(n, r)
+    res = 1
+    for i in range(r):
+        res *= (n-i)
+        res /= (i+1)
+    return res
+
 def recursive(n,r):
     # O(2^n)
     if r>n:
@@ -40,6 +49,7 @@ def optimized_space(n, r):
 
 n = 3
 r = 1
+print(basic(n, r))
 print(recursive(n,r))
 print(tabulation(n, r))
 print(optimized_space(n, r))
