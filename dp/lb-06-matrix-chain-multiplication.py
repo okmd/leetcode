@@ -45,12 +45,12 @@ def tabulation(p):
     return dp[1][n-1]
 
 
-p = [4,2,3,1,3] # 1x2 2x3 3x4 ABC
+p = [4,2,3,1,3] # 4x2 2x3 3x1 1x3 ABCD
 print(recursive(p, 1, len(p)-1))
 print(memoization(p))
 print(tabulation(p))
 
-p = [1,2,3,4,5] # 1x2 2x3 3x4 ABC
+p = [1,2,3,4,5] # 1x2 2x3 3x4 4x5 ABCD
 print(recursive(p, 1, len(p)-1))
 print(memoization(p))
 print(tabulation(p))
