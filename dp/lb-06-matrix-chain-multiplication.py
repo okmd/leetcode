@@ -31,16 +31,26 @@ def memoization(p):
 
 
 def tabulation(p):
+    # For ABCD p will have n(5) elements as p0 to p4. Adim(p0, p1), Bdim(p1,p2)..
+    # Create dp table of size n(5)
+    # 1st row and 1st col not represent anything 10->nothing, 01->nothing.
+    # Take either upper lower or triangular matrix.
+    # [i][i] -> represent only single matrix. hence no multiplication.
+    # 12-> AB, 13->ABC, 14->ABCD, 23->BC, 24->BCD, 34->CD, 44->D
     n = len(p)
     dp = [[maxsize]*(n) for _ in range(n)]
     # 0th row and col not used
     for i in range(1, n):
         dp[i][i] = 0
-
+    # start multiplying the matrix from 2 till n-1 i.e AB, ABC , ABCD[2,3,4]
     for cl in range(2, n):
-        for i in range(1, n-cl + 1):
-            j = cl+i-1
-            for k in range(i, j):
+        # n-cl = number of cells in diagonal 1 above the previous diagonal.
+        for i in range(n-cl):# cl=2, i=0,1,2 | cl=3, i=0,1 | cl=4, i=0
+            # end point of the triangular matrix.
+            j = cl+i # cl=2, j=2,3,4 | cl=3, j=3,4 | cl=4, j=4
+            # always start with 1,x ans move diagonally downward.
+            i += 1
+            for k in range(i, j):# (1,4) = min((1,1)+(2,4)+x, (1,2)+(3,4), (1,3)+(4,4))
                 dp[i][j]  = min(dp[i][j], dp[i][k] + dp[k+1][j] +p[i-1]*p[k]*p[j])
     return dp[1][n-1]
 
