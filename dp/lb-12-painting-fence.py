@@ -27,12 +27,29 @@ def tabulation(n, k):
     dp = [0]*(n+1)
     dp[0] = k   # when N=1
     dp[1] = k*k # as k*1 + k*(k-1) for N=2
-    for i in range(2,n+1):
-        dp[i] = (k-1)*(dp[i-1] + dp[i-2])
+    for i in range(2,n):
+        dp[i] = (k-1)*(dp[i-1] + dp[i-2])%1000000007
         
     return dp[n-1]
 
+def space_optimized(n, k):
+    if n==1:
+        return k
+    if n==2:
+        return k*k
+    
+    pre_prev = k
+    prev = k*k
+    
+    for _ in range(2, n):
+        temp = prev
+        prev = (k-1)*(prev + pre_prev)%1000000007
+        pre_prev = temp
+    
+    return prev
+    
+    
 
 k=4
 for i in range(1,10):
-    print(tabulation(i,k))
+    print(tabulation(i,k), space_optimized(i,k))
