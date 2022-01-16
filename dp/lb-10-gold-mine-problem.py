@@ -1,6 +1,6 @@
 # given a matrix of gold coins,
 # collect maximum coins by visiting the cell in top right(diagonal up), right, bottom right(diagonal down).
-# your current posion is col 0 at any row
+# your current position is col 0 at any row
         
 def get_dp(dp, r, c, n, m):
     if r<0 or r>=n or c<0 or c>=m:
