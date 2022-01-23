@@ -41,6 +41,23 @@ def lcs_tabulation(str1, str2):
                 
     return dp[n][m]
 
+# NOTE: space can be optimized by using only two rows as, prevous rows ans needed at a time.
+def lcs_tabulation_space_optimized(str1, str2):
+    n = len(str1)
+    m = len(str2)
+    dp = [[0]*(m+1) for _ in range(2)]
+    for i in range(n+1):
+        bi = i&1
+        for j in range(m+1):
+            if i==0 or j==0:
+                dp[bi][j] = 0
+            elif str1[i-1] == str2[j-1]:
+                dp[bi][j] = 1+ dp[1-bi][j-1]
+            else:
+                dp[bi][j] = max(dp[bi][j-1], dp[1-bi][j])
+                
+    return dp[n&1][m]
+
 
 str1 = "A"
 str2 = "ABCD"
@@ -49,3 +66,4 @@ m = len(str2)
 print(lcs_recursive(str1, str2, n-1, m-1))
 print(lcs_memoization(str1, str2))
 print(lcs_tabulation(str1, str2))
+print(lcs_tabulation_space_optimized(str1, str2))
