@@ -3,7 +3,7 @@
 # Each node need a service time.
 # Each line requires some entry and exit time.
 # passing from one node two other don;t require extra time in same line
-# but requires in other line to mode diagonally rightward
+# but requires in other line to move diagonally rightward
 
 def tabulation_min_time(nt, lct, et, xt):
     n = len(nt[0])
@@ -22,7 +22,7 @@ def tabulation_min_time(nt, lct, et, xt):
         
     return min(map(lambda x:x[0], dp))
 
-# NOTE: further space can be optimized using the only two vatibale dp[0-1]
+# NOTE: further space can be optimized using the only two variable dp[0-1]
                 
             
 

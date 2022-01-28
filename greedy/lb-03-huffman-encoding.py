@@ -12,7 +12,7 @@ class Node:
         self.char = c
         self.left = l
         self.right = r
-        self.terminal = t
+        self.terminal = t # remove as terminal don't have left and right child
         
     def __lt__(self, n):
         return self.frequency < n.frequency
