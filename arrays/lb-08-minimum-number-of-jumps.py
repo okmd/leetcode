@@ -15,7 +15,7 @@ def canReachEnd(arr):
 
 def minJumps(arr):
     n = len(arr)
-    if n==0 or arr[0]==0:
+    if n==0:
         return -1
     dp = [float('inf')]*n
     dp[0] = 0
@@ -31,4 +31,5 @@ arr = [2, 3, 1, 1, 2, 4, 2, 0,  1, 1]#[1,1,3,0,6,7]#
 print(canReachEnd(arr))
 print(minJumps(arr))
 
-# NOTE: TLE only 138/141 testcase pass
+# NOTE: TLE only 138/141 testcase pass GFG
+# LeetCode accepted @https://leetcode.com/problems/jump-game-ii
