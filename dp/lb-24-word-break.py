@@ -21,7 +21,7 @@ def wb1_memoization(string, dictionary):
     return helper(string, dictionary, 0)
 
 def wb1_tabulation(string, dictionary):
-   # pass
+   pass
    # window technique
    # https://gist.github.com/SuryaPratapK/e6e3cc77abea23a51c2030d0ed33404d
 
