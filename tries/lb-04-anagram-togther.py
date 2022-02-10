@@ -11,6 +11,13 @@ def basic(words):
 
 # https://www.youtube.com/watch?v=0I6IL3TnIZs&ab_channel=TECHDOSE
 
+def create_sorted_word(mp):
+    ls = []
+    for i,v in enumerate(mp):
+        for j in range(v):
+            ls.append(chr(i+97))
+    return "".join(ls)
+
 def using_tries_concept(words):
     # Instead of sorting each element
     # just max 26 char if same elements are present then it is anagram O(nk)
@@ -21,7 +28,7 @@ def using_tries_concept(words):
         for w in word:
             mp[ord(w) - ord('a')]+=1
         # make sorted word
-        sorted_word = "".join(chr(i+97) for i,v in enumerate(mp) if v>0)
+        sorted_word = create_sorted_word(mp)
         if not anagrams.get(sorted_word, None):
             anagrams[sorted_word] = [word]
         else:
@@ -32,6 +39,7 @@ def using_tries_concept(words):
             
         
 print(using_tries_concept(["eat", "tea", "tan"]))
+print(using_tries_concept(["ab", "abb", "tan"]))
     
     
     
