@@ -56,7 +56,7 @@ class Trie:
         def __helper(s):
             if len(s)==0:
                 return True
-            for i in range(1, len(s)):
+            for i in range(1, len(s)+1):
                 if self.search(s[:i]) and __helper(s[i:]):
                     return True
             return False
