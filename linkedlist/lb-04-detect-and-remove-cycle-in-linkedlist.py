@@ -36,6 +36,7 @@ class LList:
             x -= 1
         self.last.next = temp
 
+    # it is guranteed they will meet else there is no loop
     def detect_cycle(self):
         slow, fast = self.head, self.head
         while fast and fast.next:
@@ -47,16 +48,26 @@ class LList:
         return 0
 
     def remove_cycle(self):
+        # find the meeting point
         slow = self.detect_cycle()
         # 2 x slow = fast
         if slow:
             entry = self.head
-            while slow.next != entry:
+            # start from head and junction point
+            while slow != entry:
+                slow = slow.next
+                entry = entry.next 
+            # they will meet at the starting point of loop
+            # Special case
+            # when both point to first element then go to end and set null
+            # insread of setting at head
+            while slow.next == entry:
                 slow = slow.next
             slow.next = None
             print("Cycle removed.")
         else:
             print("Cycle is not present.")
+    
     def reverse_list(self):
         prev = None
         curr = self.head
