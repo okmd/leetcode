@@ -23,4 +23,5 @@ int kth_smallest(Node *root, int &K) {
     if (--K == 0) return root->data;
     int right = kth_smallest(root->right, K);
     if (right != -1) return right;
+    return -1;
 }
