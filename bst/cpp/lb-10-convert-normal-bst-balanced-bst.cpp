@@ -18,7 +18,8 @@ Node *convert_balanced_bst(Node *root) {
     // # now create left, right child form sub tree.
     vector<int> arr;
     find_inorder(root, arr);
-    sort(arr.begin(), arr.end());
+    // sorting is not required as it is already a sbst
+    // sort(arr.begin(), arr.end());
 
     return helper(root, 0, arr.size() - 1);
 }

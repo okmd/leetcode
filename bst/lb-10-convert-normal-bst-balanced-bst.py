@@ -17,7 +17,8 @@ def convert_balanced_bst(root):
     # divide in the middle of inorder traversals.
     # now create left, right child form sub tree.
     ino = find_inorder(root)
-    ino = sorted(ino)
+    # already bst
+    # ino = sorted(ino) 
 
     def helper(arr, start, end):
         if start > end:
