@@ -28,4 +28,4 @@ def convert_balanced_bst(root):
         root.left = helper(arr, start, mid-1)
         root.right = helper(arr, mid+1, end)
         return root
-    return helper(root, 0, len(ino)-1)
+    return helper(ino, 0, len(ino)-1)

@@ -21,5 +21,5 @@ Node *convert_balanced_bst(Node *root) {
     // sorting is not required as it is already a sbst
     // sort(arr.begin(), arr.end());
 
-    return helper(root, 0, arr.size() - 1);
+    return helper(arr, 0, arr.size() - 1);
 }
