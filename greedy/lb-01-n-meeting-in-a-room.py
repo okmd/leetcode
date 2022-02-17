@@ -11,6 +11,7 @@ def greedy_meeting(arr):
     count = 1
     previous = arr[0]
     for i in range(1, n):
+        # start is more tha end of previous no conflict i.e can be assigned easily
         if arr[i][0] > previous[1]:
             count += 1
             previous = arr[i]
