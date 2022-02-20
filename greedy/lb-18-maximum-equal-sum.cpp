@@ -6,7 +6,7 @@
 using namespace std;
 int max_sum(int arr1[], int arr2[], int arr3[], int l, int m, int n) {
     // fill the stack with running sum i.e can be done by popping all elements then
-    // storing back the sum is data structure is stack
+    // storing back the sum if data structure is stack
     // here it is array so start from right and save cumulative sum
     for (int i = l - 2; i >= 0; i--) arr1[i] += arr1[i + 1];
     for (int i = m - 2; i >= 0; i--) arr2[i] += arr2[i + 1];
