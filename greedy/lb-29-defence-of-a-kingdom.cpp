@@ -9,6 +9,7 @@
 #include <vector>
 using namespace std;
 
+// NOTE: not considering last width height
 int max_undefended_area(int width, int height, vector<pair<int, int>> towers) {
     // grid of size width and height
     int z = 0;
