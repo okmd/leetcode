@@ -37,3 +37,5 @@ string chooseandswap(string a) {
     }
     return a;
 }
+
+// NOTE: Set is BST internally -> elements are always ordered
