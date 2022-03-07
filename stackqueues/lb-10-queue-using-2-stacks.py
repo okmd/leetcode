@@ -76,7 +76,9 @@ class Queue:
     def dequeue(self):
         while self.s1.size() > 1:
             self.s2.push(self.s1.pop())
-
+            
+        if self.s1.size()==0: return -1
+        
         dequed = self.s1.pop()
 
         while not self.s2.isEmpty():
