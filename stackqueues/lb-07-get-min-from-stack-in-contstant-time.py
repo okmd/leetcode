@@ -59,7 +59,7 @@ class SpecialStackOptimized:
         if self.stack.size() == 0:
             self.stack.push(val)
             self.min = val
-        elif self.stack.top() < val:
+        elif self.min <= val:
             self.stack.push(val)
         else:
             self.stack.push(2*val - self.min)
