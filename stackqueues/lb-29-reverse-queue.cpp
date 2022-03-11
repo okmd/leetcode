@@ -16,6 +16,14 @@ void reverse(queue<int> &q) {
     }
 }
 
+void rec(queue<int> &q){
+    if(q.empty()) return;
+    int ele = q.front();
+    q.pop();
+    rec(q);
+    q.push(ele);
+}
+
 int main() {
     // 1,2,3, ...
     // ..., 3, 2, 1
@@ -23,7 +31,7 @@ int main() {
     for (int i = 0; i < 10; i++) {
         q.push(i + 1);
     }
-    reverse(q);
+    rec(q);
     while (q.size()) {
         cout << q.front() << " ";
         q.pop();
