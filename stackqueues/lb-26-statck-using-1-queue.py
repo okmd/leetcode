@@ -1,4 +1,4 @@
-# Implement stack using only sinlge queue
+# Implement stack using only single queue
 
 # front -> begining -> insertion-> push
 # back  -> end      -> deletion -> pop
