@@ -6,6 +6,11 @@
 from heapify import max_heapify
 
 def build_heap(arr):
+    # assume array is tree
+    # 1->i are non-leafs
+    # leafs are already a heap
+    # so only heapify the non-leaf nodes
+    # from last non-leaf to root
     i = len(arr)//2
     while i>0:
         max_heapify(arr, i)

@@ -4,6 +4,7 @@
 import heapq
 def sort_frequently(string):
     count = {}
+    # find frequency of each char and store
     for i in string:
         if not count.get(i, None):
             count[i] = 0
@@ -12,10 +13,12 @@ def sort_frequently(string):
     # convert to list to heapify based on count
     heap = [(c,v) for (v,c) in count.items()]
     print(heap)
+    # create a max heap
     heapq._heapify_max(heap)
     ans = []
     while len(heap):
         c, val = heapq._heappop_max(heap)
+        # same char freq times.
         while c:
             c-=1
             ans.append(val)

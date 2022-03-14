@@ -9,8 +9,10 @@ from build_heap import *
 # for max heap -> increase key -> move up
 # for min heap -> increase key -> move down
 def increase_key(arr, i, key):
+    # if key less and u wnat to increase
     if key < arr[i]:
         return "Should be greator"
+    # increase and percolate up
     arr[i] = key
     while i>1 and arr[i//2] < arr[i]:
         arr[i], arr[i//2] = arr[i//2], arr[i]
@@ -23,6 +25,7 @@ def decrease_key(arr, i, key):
     if key > arr[i]:
         return "Should be less"
     arr[i] = key
+    # percolate down
     max_heapify(arr, i)
 
 if __name__ == "__main__":
