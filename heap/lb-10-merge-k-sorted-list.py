@@ -44,6 +44,8 @@ l3.next = ListNode(6)
 lists = [l1, l2, l3]
 
 merged = merge_k_sorted_lists(lists)
+# setattr(Node, "__lt__", lambda self, other: self.data < other.data)
+# if node class is not accessible
 while merged:
     print(f"{merged.val}", end="->")
     merged = merged.next
