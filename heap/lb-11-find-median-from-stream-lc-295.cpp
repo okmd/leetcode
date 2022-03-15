@@ -79,7 +79,7 @@ class Solution {
         int mns = min_heap.size();
         int mxs = max_heap.size();
         // if odd then top of max heap is median
-        // if even then mean of top of min and max heap
+        // if even then mean of top of min and max heap.
         return (mxs > mns) ? double(max_heap.top()) : double((max_heap.top() + min_heap.top()) / 2);
     }
 };
