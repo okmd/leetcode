@@ -1,11 +1,12 @@
 // join based on bottom link not next link
 Node *join(Node *l1, Node *l2) {
-    if (!l1) {
-        // change next to bottom ptr
-        l2->bottom = l2->next;
-        l2->next = NULL;
-        return l2;
-    };
+//     if (!l1) {
+//         // change next to bottom ptr
+//         l2->bottom = l2->next;
+//         l2->next = NULL;
+//         return l2;
+//     };
+    if (!l1) return l2;
     if (!l2) return l1;
     Node *temp = new Node(-1);
     Node *head = temp;
