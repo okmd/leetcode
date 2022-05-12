@@ -6,6 +6,8 @@ int maxSquare(int n, int m, vector<vector<int>> mat) {
     for (int i = 1; i <= n; i++) {
         for (int j = 1; j <= m; j++) {
             if (mat[i - 1][j - 1] == 1) {
+                // Move in only 3 direcions
+                // up, left, diagonally left up
                 dp[i][j] = 1 + min(dp[i - 1][j], min(dp[i][j - 1], dp[i - 1][j - 1]));
                 largest = max(largest, dp[i][j]);
             }
