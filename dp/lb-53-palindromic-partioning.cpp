@@ -71,11 +71,13 @@ int palindromicPartition(string str) {
             dp[i] = 0;  // already palindrome
         } else {
             int min_part = INT_MAX;
-            for (int j = 0; j < i; j++) {
-
+            for (int j = 1; j <= i; j++) {
+                if (palindromic[j][i]) {
+                    min_part = min(min_part, dp[j - 1]);
+                }
             }
+            dp[i] = 1 + min_part;
         }
     }
-
     return dp[n - 1];
 }
