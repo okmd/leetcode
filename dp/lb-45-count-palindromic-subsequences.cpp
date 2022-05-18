@@ -33,7 +33,8 @@ long long int countPS(string s) {
                 long long int temp = (dp[i][j - 1] + dp[i + 1][j]) % mod;
                 dp[i][j] = (s[i] == s[j]) ? (temp + 1) % mod : temp - dp[i + 1][j - 1];
             }
+            dp[i][j] = dp[i][j] % mod;
         }
     }
-    return dp[0][n - 1];
+    return (dp[0][n - 1] < 0) ? dp[0][n - 1] + mod : dp[0][n - 1];
 }
