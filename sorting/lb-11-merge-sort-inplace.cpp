@@ -32,8 +32,7 @@ void merge(int arr[], int l, int m, int r) {
     int gap = (r - l + 1);
     while (gap > 1) {
         gap = ceil(gap / 2.0);
-        for (int i = l; i + gap <= r; i++) {
-            int j = i + gap;
+        for (int i = l, j = l + gap; j <= r; i++, j++) {
             if (arr[i] > arr[j])
                 swap(arr[i], arr[j]);
         }
