@@ -1,5 +1,8 @@
 # Given n elements
 # each no represents the steps ahead
+from array import array
+
+
 def canReachEnd(arr):
     n = len(arr)
     max_reachable_index = 0
@@ -33,3 +36,26 @@ print(minJumps(arr))
 
 # NOTE: TLE only 138/141 testcase pass GFG
 # LeetCode accepted @https://leetcode.com/problems/jump-game-ii
+
+
+int minJumps(int arr[], int n) {
+        int max_reachable_index = arr[0];
+        int can_move = arr[0]; // can move x steps before hitting next jump
+        int jumps = 1; 
+        if (n == 1) return 0;        // if only one element in arr then no jums are reauired// took one jump from starting point
+        if (arr[0] == 0) return -1;  // can;t move from 1st element
+               // if only one element in arr then no jums are reauired
+        for (int i = 1; i < n; i++) {
+            if (i > max_reachable_index) return -1;
+            if (i == n - 1) return jumps;  // as reached the end of array hence return the jums taken.
+            max_reachable_index = max(max_reachable_index, i + arr[i]);
+            // took one step
+            can_move--;
+            if (can_move == 0) {
+                jumps++;
+                can_move = max_reachable_index - i;
+                // how many steps_required to reach the point where 
+                // next jump will be taken
+            }
+        }
+    }
