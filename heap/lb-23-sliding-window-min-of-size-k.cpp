@@ -74,3 +74,20 @@ int main() {
     cout << endl;
     return 0;
 }
+
+// Both of the above solution is not valid for 100%
+vector<int> max_of_subarrays(int *arr, int n, int k) {
+    deque<int> dq;
+    vector<int> ans;
+    for (int i = 0; i < n; i++) {
+        // remove outof bound if present
+        if (!dq.empty() and dq.front() == i - k) dq.pop_front();
+        // mintain only Monotonically decreasing DQ;
+        while (!dq.empty() and arr[dq.back()] < arr[i]) dq.pop_back();
+        // push index to get the array directly ans measure the bound
+        dq.push_back(i);
+        // as soon as windows hit put max into ans; max always lies at head of DLL
+        if (i >= k - 1) ans.push_back(arr[dq.front()]);
+    }
+    return ans;
+}
