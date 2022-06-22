@@ -23,11 +23,11 @@ pair<int, int> maxSubarraySum0(vector<int>& arr) {
     return { mx, mx_ending };
 }
 
-void maximumRectangle(vector<vector<int>> M) {
+int maximumRectangle(vector<vector<int>> M) {
     int R = M.size();
     int C = M[0].size();
     int row_start = 0, row_end = 0, col_start = 0, col_end = 0;
-    int max_len = INT_MIN;
+    int max_len = 0, max_area = 0, curr_area;
     for (int k = 0; k < R; k++) {
         vector<int> row(C, 0);
         for (int i = k; i < R; i++) {
@@ -35,7 +35,9 @@ void maximumRectangle(vector<vector<int>> M) {
                 row[j] += M[i][j];
             }
             auto [mxlen, mx_ending_col] = maxSubarraySum0(row);
-            if (max_len < mxlen) {
+            max_area = max_len * (row_end - row_start + 1);
+            curr_area = mxlen * (i - k + 1);
+            if (max_area <= curr_area) {
                 max_len = mxlen;
                 row_start = k;
                 row_end = i;
@@ -51,6 +53,7 @@ void maximumRectangle(vector<vector<int>> M) {
         }
         cout << endl;
     }
+    return max_area;
 }
 int main() {
     vector<vector<int>> M = {
@@ -58,7 +61,7 @@ int main() {
         { 1, -6, -7, 3 },
         { 1, 8, 7, 9 },
         { 7, -2, 0, 10 }};
-    maximumRectangle(M);
+    cout << maximumRectangle(M) << endl;
     return 0;
 }
 // https://leetcode.com/playground/6CejihDR
