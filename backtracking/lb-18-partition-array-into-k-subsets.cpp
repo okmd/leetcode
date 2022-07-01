@@ -5,7 +5,8 @@ bool helper(int a[], int n, int k, int curr_sum, int count, vector<bool>& visite
     if (count == k - 1) return true;
     if (curr_sum > ssm) return false;
     // create a new subset;
-    if (curr_sum == ssm and helper(a, n, k, 0, count + 1, visited, ssm)) return true; // as true is found no need to check further;
+    if (curr_sum == ssm) return helper(a, n, k, 0, count + 1, visited, ssm); // 
+    // if (curr_sum == ssm and helper(a, n, k, 0, count + 1, visited, ssm)) return true; // as true is found no need to check further;
 
     for (int i = 0; i < n; i++) {
         if (!visited[i]) {
