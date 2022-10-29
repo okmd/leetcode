@@ -13,18 +13,18 @@ public:
         return (i - 1) / 2;
     }
     int left(int i) {
-        return 2 * i;
+        return 2 * i+1;
     }
     int right(int i) {
-        return 2 * i + 1;
+        return 2 * i + 2;
     }
     void heapify_down(int i) {
         int l = left(i);
         int r = right(i);
         int largest = i;
         // change sign to convert to min-heap
-        if (l<size and arr[l]>arr[largest]) largest = l;
-        if (r<size and arr[r]>arr[largest]) largest = r;
+        if (l < size and arr[l] < arr[largest]) largest = l;
+        if (r < size and arr[r] < arr[largest]) largest = r;
         if (largest != i) {
             swap(arr[i], arr[largest]);
             heapify_down(largest);
@@ -33,7 +33,7 @@ public:
     void heapify_up(int i) {
         int p = parent(i);
         // > for min-heap
-        if (i and arr[p] < arr[i]) {
+        if (i and arr[p] > arr[i]) {
             swap(arr[i], arr[p]);
             heapify_up(p);
         }

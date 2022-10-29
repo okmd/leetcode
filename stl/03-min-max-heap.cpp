@@ -1,30 +1,56 @@
 #include<iostream>
 using namespace std;
 
+bool compare(int a, int b) {
+    return a < b;
+}
+bool compare(float a, float b) {
+    return a < b;
+}
+class point {
+public:
+    int a, b;
+    point(int x, int y) {
+        a = x;
+        b = y;
+    }
+    point() {
+        a = 0, b = 0;
+    }
+    void show() {
+        cout << "(" << a << ", " << b << ") ";
+    }
+};
+bool compare(point p1, point p2) {
+    return p1.a < p2.a;
+}
+
+template<typename T>
 class PQ {
 public:
-    int* arr;
+    T* arr;
     int size;
-    PQ(int s) {
-        arr = new int[s];
+    bool (*compare)(T, T);
+    PQ(int s, bool (*fun)(T, T)) {
+        arr = new T[s];
         size = 0;
+        compare = fun;
     }
     int parent(int i) {
         return (i - 1) / 2;
     }
     int left(int i) {
-        return 2 * i;
+        return 2 * i + 1;
     }
     int right(int i) {
-        return 2 * i + 1;
+        return 2 * i + 2;
     }
     void heapify_down(int i) {
         int l = left(i);
         int r = right(i);
         int largest = i;
-        // change sign to convert to min-heap
-        if (l<size and arr[l]>arr[largest]) largest = l;
-        if (r<size and arr[r]>arr[largest]) largest = r;
+        if (l < size and compare(arr[l], arr[largest])) largest = l;
+        if (r < size and compare(arr[r], arr[largest])) largest = r;
         if (largest != i) {
             swap(arr[i], arr[largest]);
             heapify_down(largest);
@@ -32,13 +58,12 @@ public:
     }
     void heapify_up(int i) {
         int p = parent(i);
-        // > for min-heap
-        if (i and arr[p] < arr[i]) {
+        if (i and !compare(arr[p], arr[i])) {
             swap(arr[i], arr[p]);
             heapify_up(p);
         }
     }
-    void push(int val) {
+    void push(T val) {
         arr[size++] = val;
         heapify_up(size - 1);
     }
@@ -46,7 +71,7 @@ public:
         arr[0] = arr[--size];
         heapify_down(0);
     }
-    int top() {
+    T top() {
         return arr[0];
     }
     ~PQ() {
@@ -54,13 +79,10 @@ public:
     }
 };
 int main() {
-    PQ pq(10);
-
-    // Note: The element's value decides priority
-
+    PQ<float> pq(10, &compare);
     pq.push(3);
     pq.push(2);
-    pq.push(15);
+    pq.push(15.4);
 
     cout << "Size is " << pq.size << endl;
 
@@ -70,7 +92,7 @@ int main() {
     cout << pq.top() << ";\n";
     pq.pop();
 
-    pq.push(5);
+    pq.push(15.5);
     pq.push(4);
     pq.push(45);
 
@@ -89,4 +111,12 @@ int main() {
     pq.pop();
 
     std::cout << pq.size;
+
+    /// P
+    PQ<point> pq1(10, &compare);
+    pq1.push(point(1, 2));
+    cout << pq1.size << endl;
+    pq1.top().show();
+
+    return 0;
 }
